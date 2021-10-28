@@ -8,10 +8,11 @@
         <div class="card-body">
             <div>kind: {{$route.query.kind}}</div>
             <div>color: {{$route.query.color}}</div>
+            <hr/>
             <div>kind: {{kind}}</div>
             <div>color: {{color}}</div>
 
-            <hr/>
+             <hr/>
 
             <button class="btn btn-info btn-sm mr-2" @click="goHome">홈으로 이동</button>
             <button class="btn btn-info btn-sm mr-2" @click="goBack">뒤로 이동</button>
