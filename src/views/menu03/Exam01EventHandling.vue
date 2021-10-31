@@ -13,8 +13,9 @@
             <hr/>
             <a href="/" @click.prevent="handleLink()">링크</a>
             <hr/>
+            <!-- 세로 정렬 align-items-center justify-content-center -->
             <form @submit.prevent="handleSubmit">
-                <div class="d-flex align-items-center justify-content-center">
+                <div class="d-flex">  
                     <input type="submit" value="제출" class="btn btn-info btn-sm mr-2"/>
                     <button class="btn btn-info btn-sm mr-2">제출</button>
                     <input type="image" :src="require(`@/assets/logo.png`)" height="30"/>

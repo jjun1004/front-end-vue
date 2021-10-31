@@ -58,7 +58,7 @@ export default {
 </script>
 
 <!-- component style definition-->
-<style scoped>
+<style>
     .class1{
         color:red;
     }

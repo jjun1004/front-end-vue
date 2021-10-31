@@ -7,10 +7,11 @@
         </div>
         <div class="card-body">
             <h6>범위 반복</h6>
-            <span v-for="n in 10" :key="n" class="mr-2">
-                <img :src="require(`@/assets/photos/photo${n}.jpg`)" height="150" v-if="n%2===0"/>
-            </span>
-
+            <div>
+                <span v-for="n in 10" :key="n" class="mr-2">
+                    <img :src="require(`@/assets/photos/photo${n}.jpg`)" height="150" v-if="n%2===0"/>
+                </span>
+            </div>
             <hr/>
 
             <h6>배열 항목 반복</h6>
