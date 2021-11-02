@@ -32,6 +32,9 @@ export default {
     AppHeader,
     AppMenu,
   },
+  created() {
+    this.$store.dispatch("loadAuth");
+  }
 };
 </script>
 

@@ -31,6 +31,23 @@
     <li class="nav-item mt-2">
       <h6 class="text-white">Menu:04 Data Delivery</h6>
       <router-link to="/menu04/exam01props" class="nav-link text-warning">부모에서 자식으로 전달(props 이용)</router-link>
+      <router-link to="/menu04/exam02eventemit" class="nav-link text-warning">자식에서 부모로 전달(event 이용)</router-link>
+      <router-link to="/menu04/exam03inject" class="nav-link text-warning">의존 데이터 삽입(inject 이용)</router-link>
+      <router-link to="/menu04/exam04ref" class="nav-link text-warning">Ref를 이용한 접근</router-link>
+    </li>
+    <li class="nav-item mt-2">
+        <h6 class="text-white">Menu:05 LifeCycleHook</h6>
+        <router-link to="/menu05/exam01lifecyclehook" class="nav-link text-warning">라이프사이클 훅</router-link>
+    </li>
+    <li class="nav-item mt-2">
+        <h6 class="text-white">Menu:06 Vuex State Management</h6>
+        <router-link to="/menu06/exam01rootstate" class="nav-link text-warning">루트 상태 읽기 및 변경</router-link>
+        <router-link to="/menu06/exam02counterstate" class="nav-link text-warning">하위 상태 읽기 및 변경</router-link>
+    </li>
+    <li class="nav-item mt-2">
+        <h6 class="text-white">Menu:07 Axios AJAX</h6>
+        <router-link to="/menu07/exam01asynccontrol" class="nav-link text-warning">비동기 작업 도중에 보여줄 스피너</router-link>
+        <router-link to="/menu07/auth/jwtauth" class="nav-link text-warning">Jwt 인증</router-link>
     </li>
   </ul>
 </template>
