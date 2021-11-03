@@ -8,7 +8,7 @@
         <div class="card-body">
             <form @submit.prevent="handleAdd">
                 <div class="form-group row">
-                <label for="btitle" class="col-sm-2 col-form-label">제목</label>
+                <label class="col-sm-2 col-form-label">제목</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" v-model="board.btitle"/>
                 </div>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import apiboard from "@/apis/board";
+import apiBoard from "@/apis/board";
 import AlertDialog from "@/components/menu07/AlertDialog.vue";
 
 export default {
@@ -74,26 +74,25 @@ export default {
                 multipartFormData.append("mid", this.$store.state.userId);
                 const battach = this.$refs.battach;
                 // 위에 input file은 mutiple이 추가 되면 여러개의 파일을 선택할 수 있음. 그래서 files가 되는 것.
-                if(battach.files.length != 0) {
+                if(battach.files.length > 0) {
                     // 파일이 하나 아니면 0개인데 하나 일 때니깐 배열의 첫번째를 불러옴
                     multipartFormData.append("battach", battach.files[0]);
                 }
                 this.loading = true;
                 this.alertDialog = true;
-                const response = await apiboard.createBoard(multipartFormData);
+                const response = await apiBoard.createBoard(multipartFormData);
                 console.log(response);
                 this.loading = false;
                 this.alertDialog = false;
                 this.$router.push("/menu07/board/list");
             } catch(error) {
                 if(error.response) {
+                    this.loading = false;
                     if(error.response.status === 403) {
-                        this.loading = false;
                         this.alertDialog = false;
                         this.$router.push("/menu07/auth/jwtauth");
                     }
                 } else {
-                    this.loading = false;
                     this.alertDialogMessage = "네트워크 통신 오류";
                 }
             }

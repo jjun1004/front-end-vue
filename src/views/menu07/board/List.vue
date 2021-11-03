@@ -90,13 +90,12 @@ export default {
                 })
                 .catch(error => {
                     if(error.response) {
+                        this.loading = false;
                         if(error.response.status === 403) {
-                            this.loading = false;
                             this.alertDialog = false;
                             this.$router.push("/menu07/auth/jwtauth");
                         }
                     } else {
-                        this.loading = false;
                         this.alertDialogMessage = "네트워크 통신 오류";
                     }
                 });

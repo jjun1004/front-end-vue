@@ -8,21 +8,21 @@
         <div class="card-body">
             <form v-if="board" v-on:submit.prevent="handleUpdate">
                 <div class="form-group row">
-                <label for="btitle" class="col-sm-2 col-form-label">제목</label>
+                <label class="col-sm-2 col-form-label">제목</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="btitle" v-model="board.btitle"/>
+                    <input type="text" class="form-control" v-model="board.btitle"/>
                 </div>
                 </div>
                 <div class="form-group row">
-                <label for="bcontent" class="col-sm-2 col-form-label">내용</label>
+                <label class="col-sm-2 col-form-label">내용</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="bcontent" v-model="board.bcontent"/>
+                    <input type="text" class="form-control"  v-model="board.bcontent"/>
                 </div>
                 </div>
                 <div class="form-group row">
-                <label for="battach" class="col-sm-2 col-form-label">첨부그림</label>
+                <label class="col-sm-2 col-form-label">첨부그림</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control-file" id="battach" ref="battach"/>
+                    <input type="file" class="form-control-file" ref="battach"/>
                 </div>
                 </div>
                 <div>
@@ -53,7 +53,7 @@ export default {
     data: function() {
         return {
             board: null,
-            baseURL: axios.defaults.baseURL
+            baseURL: axios.defaults.baseURL,
         };
     },
     // component method definition
@@ -62,31 +62,30 @@ export default {
             try {
                 const multipartFormData = new FormData();
                     multipartFormData.append("bno", this.board.bno);
-                    multipartFormData.append("btitle", this.board.title);
-                    multipartFormData.append("bcontent", this.$store.state.bcontent);
+                    multipartFormData.append("btitle", this.board.btitle);
+                    multipartFormData.append("bcontent", this.board.bcontent);
                     const battach = this.$refs.battach;
                     // 위에 input file은 mutiple이 추가 되면 여러개의 파일을 선택할 수 있음. 그래서 files가 되는 것.
-                    if(battach.files.length != 0) {
+                    if(battach.files.length > 0) {
                         // 파일이 하나 아니면 0개인데 하나 일 때니깐 배열의 첫번째를 불러옴
                         multipartFormData.append("battach", battach.files[0]);
                     }
 
                     this.loading = true;
-                    this.alertDialogue - true;
+                    this.alertDialog = true;
                     const response = await apiBoard.updateBoard(multipartFormData);
                     console.log(response);
                     this.loading = false;
                     this.alertDialog = false;
-                    this.$router.push(`/menu07/board/read?bno=${this.$route.query.bno}&oageNo=${this.$route.query.pageNo}&hit=false`);
+                    this.$router.push(`/menu07/board/read?bno=${this.$route.query.bno}&pageNo=${this.$route.query.pageNo}&hit=false`);
             }catch(error) {
                 if(error.response) {
+                    this.loading = false;
                     if(error.response.status === 403) {
-                        this.loading = false;
                         this.alertDialog = false;
                         this.$router.push("/menu07/auth/jwtauth");
                     }
                 } else {
-                    this.loading = false;
                     this.alertDialogMessage = "네트워크 통신 오류";
                 }
             }
@@ -100,7 +99,7 @@ export default {
 
     //컴포넌트가 생성된 후 실행되는 hook
     created() {
-        apiBoard.readBoard(this.$router.query.bno, this.$router.query.hit)
+        apiBoard.readBoard(this.$route.query.bno, this.$route.query.hit)
         .then(response => {
             this.board = response.data;
         })

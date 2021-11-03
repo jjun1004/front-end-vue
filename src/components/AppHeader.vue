@@ -25,7 +25,7 @@ export default {
     // component method definition
     methods: {
       handleLogout() {
-        this.$store.dispatch("delteAuth");
+        this.$store.dispatch("deleteAuth");
       }
     }
 }

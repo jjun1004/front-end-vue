@@ -22,7 +22,7 @@
                             </a>
                         </p>
                     </div>
-                    <div class="ml-5">
+                    <div class="d-flex align-items-center ml-5">
                         <img :src="`${baseURL}/board/battach/${board.bno}?jwt=${$store.state.authToken}`" alt="" width="300"/>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ import apiBoard from "@/apis/board";
 
 export default {
     // component's name found in vue devtools on chrome.
-    name: "",
+    name: "Read",
     // components that i want to add
     components: {
     },
@@ -54,7 +54,7 @@ export default {
         return {
             baseURL: axios.defaults.baseURL,
             // board: 디폴트 값은 null로 줌
-            board: null
+            board: null,
         };
     },
     // component method definition

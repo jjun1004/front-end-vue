@@ -1,7 +1,7 @@
 import axios from "axios";
 
 function getBoardList(pageNo=1) {
-    return axios.get("/board/list/", {params:{pageNo}});
+    return axios.get("/board/list", {params:{pageNo}});
 }
 
 function createBoard(multipartFormData) {
