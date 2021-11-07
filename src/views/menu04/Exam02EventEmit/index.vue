@@ -11,7 +11,8 @@
                     @child-event-2="handleChildEvent2"
                     :counter="counter"
                     @counter-increment="handleCounterIncrement"
-                    @counter-decrement="handleCounterDecrement"/>
+                    @counter-decrement="handleCounterDecrement"
+                    @data-pass="dataPass"/>
         </div>
     </div>
 </template>
@@ -30,7 +31,7 @@ export default {
     // component data definition
     data: function() {
         return {
-            counter: 0
+            counter: 0,
         };
     },
     // component method definition
@@ -50,6 +51,9 @@ export default {
             if(this.counter >= 5){
             this.counter -= value;
             }
+        },
+        dataPass(arg3) {
+            this.counter = arg3;
         }
     }
 }

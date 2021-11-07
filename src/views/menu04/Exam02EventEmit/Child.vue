@@ -9,6 +9,7 @@
             <h6>[자식 - > 부모]</h6>
             <button class="btn btn-info btn-sm mr-2" @click="handleBtn1">child-event-1 emit</button>
             <button class="btn btn-info btn-sm mr-2" @click="handleBtn2">child-event-2 emit</button>
+            <button class="btn btn-info btn-sm mr-2" @click="handleBtn5">data2 값 전달하기</button>
             <hr/>
             <h6>[부모 - > 자식 -> 부모 -> 자식]</h6>
             <p class="mb-2">부모로부터 받은 counter: {{counter}}</p>
@@ -49,6 +50,10 @@ export default {
         handleBtn4() {
             //이벤트 발생
             this.$emit("counter-decrement", 5);
+        },
+        handleBtn5() {
+            //이벤트 발생
+            this.$emit("data-pass", this.data2);
         }
 
     },
