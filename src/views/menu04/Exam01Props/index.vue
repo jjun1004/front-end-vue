@@ -22,7 +22,7 @@
                     :propE="9"
                     :propF="{message:'hello, vue'}"
                     :propG="['red', 'green', 'blue']"
-                    :propI="5"/>
+                    :propH="5"/>
         </div>
     </div>
 </template>

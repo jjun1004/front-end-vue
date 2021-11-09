@@ -12,14 +12,14 @@
             <p>propD: {{propD}}</p>
             <p>propE: {{propE + 10}}</p>
             <p>propF: {{propF.message}}</p>
-            <p>propF: 
+            <p>propG: 
                 <ul>
                 <li v-for="(value, index) in propG" :key="index">
                     {{value}}
                 </li>
                 </ul>
             </p>
-            <p>propI: {{propI}}</p>
+            <p>propH: {{propH}}</p>
         </div>
     </div>
 </template>
@@ -64,7 +64,7 @@ export default {
           return ["black", "white"]
         }
       },
-      propI: {                  //사용자 유효성 검사 가능
+      propH: {                  //사용자 유효성 검사 가능
         validator(value) {
           return value > 0;
         }
