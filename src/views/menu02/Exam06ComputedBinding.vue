@@ -9,7 +9,7 @@
             <p>ssn1: {{ssn1}} </p>
             <p>ssn2: {{ssn2}} </p>
             <p>date: {{date}} </p>
-            <p>ssn: {{ssn1}}-{{ssn2.charAt(0)}}+****** </p>
+            <p>ssn: {{ssn1}}-{{ssn2.charAt(0)}}****** </p>
             <p>ssn: {{getSsn()}} </p>
             <p>ssn: {{computedSsn}} </p>
             <button class="btn btn-info btn-sm mt-2" @click="changeData">변경</button>
@@ -44,14 +44,14 @@ export default {
                 this.date = new Date();
                 this.ssn2= "2220123";
             },
-        computed: {
-            computedSsn() {
-                console.log("computedSsn() 실행됨");
-                const ssn = this.ssn1 + "-" + this.ssn2.charAt(0) + "******";
-                return ssn;
-            }
+    },
+    computed: {
+        computedSsn() {
+            console.log("computedSsn() 실행됨");
+            const ssn = this.ssn1 + "-" + this.ssn2.charAt(0) + "******";
+            return ssn;
         }
-    }
+    },
 }
 </script>
 
