@@ -11,7 +11,7 @@
             <button class="btn btn-info btn-sm mr-2" @click="handleBtn2('vue is good', $event)" name="btn2">버튼2</button>
             <button class="btn btn-info btn-sm mr-2" @click="handleBtn2('vue is good', $event)" name="btn3">버튼3</button>
             <hr/>
-            <a href="/" @click.prevent="handleLink()">링크</a>
+            <a href="/" @click.prevent="handleLink($event)">링크</a>
             <hr/>
             <!-- 세로 정렬 align-items-center justify-content-center -->
             <form @submit.prevent="handleSubmit">
