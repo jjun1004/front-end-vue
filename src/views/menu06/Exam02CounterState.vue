@@ -11,7 +11,7 @@
             <p> counter/count 단방향 바인딩: {{$store.getters["counter/getCount"]}}</p>
             <p> counter/count 단방향 바인딩: {{getCount()}}</p>
             <p> counter/count 단방향 바인딩: {{computedCount}}</p>
-            <p> counter/count 양방향 바인딩: <input type="text" v-model.number="$store.counter.count"/></p>
+            <p> counter/count 양방향 바인딩: <input type="text" v-model.number="$store.state.counter.count"/></p>
 
             <hr/>
 
